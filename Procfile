@@ -1,0 +1,1 @@
+web: gunicorn wealthline_merchants.wsgi --log-file -
