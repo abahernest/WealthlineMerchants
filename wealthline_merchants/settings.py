@@ -37,9 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'image_optimizer',
+    'cloudinary',
 ]
 
 OPTIMIZED_IMAGE_METHOD = 'pillow'
@@ -138,7 +140,12 @@ STATICFILES_DIRS = (
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 MEDIA_URL='/media/'
 
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'hccxx5ovz',
+    'API_KEY': '358134852569456',
+    'API_SECRET': 'daZkA-QXPyPvfMRYGDicEZUvdoA',
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Activate Django-Heroku settings except logging
 django_heroku.settings(locals(), logging=False)
