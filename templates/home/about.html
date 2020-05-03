@@ -9,7 +9,7 @@
     <meta name="description" content="A website that introduces Secured Online Business for the Nigerian Market">
     <meta name="author" content="Ernest Abah">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Home | Wealthline Merchants</title>
+    <title>About-Us | Wealthline Merchants</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/carousel/">
 
@@ -54,87 +54,59 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'home' %}">Home </a>
+        </li>
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#">About Us <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'about' %}">About Us</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Facebook</a>
+          <a class="nav-link" href="#" target= "">Facebook</a>
         </li>
       </ul>
     </div>
   </nav>
 </header>
 
-<main role="main">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="3500" data-pause="hover" data-touch="true" data-wrap="true" data-ride="carousel">
-    <div class="carousel-inner">
 
-      <div class="carousel-item active">
-        <img src="{{firstcarousel.image.url}}" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" focusable="false" class="d-block w-100" alt="...">
-        <!-- <div class="carousel-caption d-none d-md-block"> -->
-          <div class="container">
-          <div class="carousel-caption text-left">
-            <p>{{firstcarousel.text}}</p>
-            <p><a class="btn btn-lg btn-primary" href="{{firstcarousel.link}}" target="/" role="button">{{firstcarousel.Button_text}}</a></p>
-          </div>
-        </div>
-      </div>
-    
-      {% for carousel in carousels%}
-      <div class="carousel-item">
-        <img src="{{carousel.image.url}}" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" focusable="false" class="d-block w-100" alt="...">
-        <!-- <div class="carousel-caption d-none d-md-block"> -->
-          <div class="container">
-          <!-- <h5>First slide label</h5> -->
-          <div class="carousel-caption text-left">
-            <p>{{carousel.text}}</p>
-            <p><a class="btn btn-lg btn-primary" href="{{carousel.link}}" target="/" role="button">{{carousel.Button_text}}</a></p>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    
-    </div>
-  </div>
+<section>
+<main role="main" class="container">
+<br />
+<br />
+<br />
+<br />
 <br />
 
-<div class="row mb-2">
-  {% for story in stories %}
-  <div class="col-md-6">
-    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-      <div class="col p-4 d-flex flex-column position-static">
-        <strong class="d-inline-block mb-2 text-primary">RAGP WINNERS</strong>
-        <h3 class="mb-0">{{story.name}}</h3>
-        <p class="card-text mb-auto">{{story.summary}}</p>
-        <a href="{% url 'story' story.name %}" class="stretched-link">Continue reading</a>
-      </div>
-    </div>
-  </div>
-  {% endfor %}
-</div>
-
-
-  <div class="row row-cols-1 row-cols-md-2">
-    {% for blog in blogs %}
-    <div class="col mb-4">
-      <div class="card h-100">
-        <img src="{{blog.image.url}}" width="300" height="200" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title"><a href="{% url 'detail' blog.title %}" class="stretched-link">{{blog.title}}</a></h5>
-          <!-- <div class="card-footer"> -->
-            <small class="text-muted">{{blog.pretty_date}}</small>
-          <!-- </div>  -->
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-
-
+<p>
+ Welcome, we bring you new opportunities in the telecom world.   
+<br />
+We discovered that at all levels, with increasing Innovations, Technological development and people's quest for information about the happenings around the globe, and the gains of sociocultural ties, we build our business around telecom products and services that people can't do without.
+<br />
+<strong>Wealthline VTU Merchant</strong> is a VTU telecom business platform for realtime telecom business transactions.
+<br />
+<strong>OUR PRODUCTS:</strong>
+<ul>
+  <li>Airtime</l1>
+  <li>Data</li>
+  <li>Cable TV Subscriptions</li>
+  <li>Bills Payment</li>
+  <li>PHCN</li>
+  <li>WAEC/NECO</li>
+  <li>JAMB, e.t.c</li>
+</ul>
+<br />
+<strong>MISSION</strong>
+<br />
+To be the first and best VTU business platform that enables grassroot participation with low start ups, promoting telecom entrepreneurship and providing employment to improve standard of living in the economy.
+<br />
+<strong>TARGET AUDIENCE</strong>
+<br />
+All classes in the economy
+<br/>
+</p>
 </main>
+</section>
+
   <!-- FOOTER -->
   <footer class="text-muted">
     <div class="container text-center">
@@ -148,4 +120,5 @@
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </body>
+ 
 </html>
