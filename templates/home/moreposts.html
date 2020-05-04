@@ -8,7 +8,7 @@
     <meta name="description" content="A website that introduces Secured Online Business for the Nigerian Market">
     <meta name="author" content="Ernest Abah">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Stories | Wealthline Merchants</title>
+    <title>Post | Wealthline Merchants</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/blog/">
 
@@ -71,19 +71,26 @@
   </header>
 
 
-  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-    <img src="{{story.passport.url}}" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" focusable="false" class="d-block w-100" alt="story_image">
-  </div>
-
 </div>
 
 <main role="main" class="container">
 
-      <div class="blog-post">
-        <h2 class="blog-post-title">{{story.name}}</h2>
-        <hr>
-        <p>{{story.story}}</p>
+    <div class="row row-cols-1 row-cols-md-2">
+        {% for blog in blogs %}
+        <div class="col mb-4">
+          <div class="card h-100">
+            <img src="{{blog.image.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><a href="{% url 'detail' blog.title %}" class="stretched-link">{{blog.title}}</a></h5>
+              <!-- <div class="card-footer"> -->
+                <small class="text-muted">{{blog.pretty_date}}</small>
+              <!-- </div>  -->
+            </div>
+          </div>
+        </div>
+        {% endfor %}
       </div>
+
 
 </main><!-- /.container -->
 
