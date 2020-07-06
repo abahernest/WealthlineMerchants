@@ -2,6 +2,7 @@
 <!doctype html>
 <html lang="en">
   {% load static %}
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -78,6 +79,38 @@
         <p>{{blog.story}}</p>
       </div>
 
+      <!-- ###COMMENT SECTION -->
+
+      {% for comment in comments %}
+      <div class="comments" style="padding: 10px ;">
+      <p class='font-weight-bold'>
+          {{comment.name}}
+          <span class ='text-muted font-weight-normal'>
+              {{comment.created_on}}
+          </span>
+      </p>
+      {{comment.body | linebreaks}}
+      </div>
+      {%endfor%}
+      
+      <div class="card-body">
+          {% if new_comment %}
+          <div class='alert alert-success' role='alert'>
+              Your comment is awaiting moderation
+          </div>
+          {%else%}
+          <h3>Leave a comment</h3>
+          <form method='post' stle='margin-top: 1.3em;'>
+              {{comment_form.as_p}}
+              {%csrf_token%}
+              <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+          </form>
+          {%endif%}
+      </div>
+
+
+{% block content %}
+{% endblock content%}
 </main><!-- /.container -->
 
 <footer class="blog-footer">

@@ -1,5 +1,6 @@
 from django.shortcuts import render,get_object_or_404
-from .models import Blog,RAGP_Carousel,RAGP_Stories
+from .models import *
+from .forms import *
 
 
 blogs=Blog.objects.all().order_by('-date')
@@ -18,8 +19,21 @@ def AboutViews (request):
 
 def DetailViews (request, blog_title):
     blog_detail=get_object_or_404(Blog, title=blog_title)
-
-    context={'blog':blog_detail}
+    comments=blog_detail.comments.filter(active=True)
+    new_comment=None
+    if request.method =='POST':
+        comment_form=CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.post=blog_detail
+            new_comment.save()
+    else:
+        comment_form=CommentForm()
+    
+    context={'blog':blog_detail,
+    'comments':comments,
+    'new_comment':new_comment,
+    'comment_form':comment_form}
     return render(request,'home/detail.html',context)
 
 def StoryViews (request,ragp_stories_name):

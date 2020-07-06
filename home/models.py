@@ -39,6 +39,20 @@ class RAGP_Stories (models.Model):
     def summary (self):
         return self.story[:200]+" ..."
 
+class Comment (models.Model):
+    post= models.ForeignKey(Blog,on_delete=models.CASCADE,related_name='comments')
+    name= models.CharField(max_length=100)
+    email=models.EmailField()
+    body=models.TextField()
+    created_on=models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField (default=False)
+
+    class Meta:
+        ordering =['created_on']
+
+    def __str__(self):
+        return '{} Commented {}'.format(self.name,self.body[:20])
+
         
 
 
